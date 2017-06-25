@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" media="screen and (min-width: 0px)" href="css/small.css">
+   <link rel="stylesheet" media="screen and (min-width: 500px)" href="css/smalltablet.css">
+   <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/medium.css">
+   <link rel="stylesheet" media="screen and (min-width: 1300px)" href="css/large.css">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+   <script type="text/javascript">
+
+   // JavaScript para Login
+
+    $(document).ready(function() {
+       
+        $('#formulariojson #formulariojsonLogin').on("click", function(event) {
+             // alert("1");
+                  $.ajax({
+                                  type: 'POST',
+                                  url: "http://161.131.232.197:9111/svcRest/sesionws",
+                                  data: JSON.stringify({rutCliente: document.formulariojson.rutCliente.value,
+                                  dvCliente: document.formulariojson.dvCliente.value, 
+                                  pwCliente: document.formulariojson.pwCliente.value,
+                                  canal: document.formulariojson.canal.value,
+                                  srvInicial: document.formulariojson.srvInicial.value,
+                                  version: document.formulariojson.version.value,
+                                  plataforma: document.formulariojson.plataforma.value}),
+                                  dataType: "json",
+                                  contentType: "application/json",
+                                  success: function(data){
+                                    alert("hey"); 
+                                      console.log(data);
+                                  },
+                                  error: function(data) {
+                                   // alert("hola");
+                                 
+                                     console.log(data);
+                                      
+                                  }
+
+                  });
+//alert("hola");
+              });
+//alert("hola");
+      });
+//alert("hola");
+</script>
+
+  <!-- Hero Unit -->
+
+<div class="hero-unit">
+  
+<div class="container"> 
+
+  <h3>Sucursales BCI</h3>
+
+  <p>Atención a Clientes Bci Directo: 600 692 8000, Mesa Central: 2692 7000, Av. El Golf 125, Las Condes, Santiago.
+Notificaciones Legales: Agustinas 1161, 7° piso. Santiago Centro, Santiago.</p>
+
+<form class="form-horizontal" method="POST" id="formulariojson" name="formulariojson">
+  <div class="control-group">
+    <label class="control-label">RUT</label>
+    <div class="controls">
+      <input type="text" name="rutCliente" value="9120700">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="text" name="dvCliente" value="1">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Password:</label>
+      <div class="controls">
+        <input type="password" name="pwCliente" value="111222"> 
+      </div>
+    </div>
+  <div class="control-group">
+    <label class="control-label">Canal:</label>
+      <div class="controls">
+        <input type="text" name="canal" value="910">
+      </div>
+    </div>
+        <div class="control-group">
+    <label class="control-label">Srvinicial:</label>
+      <div class="controls">
+        <input type="text" name="srvInicial" value="">
+      </div>
+    </div>
+        <div class="control-group">
+    <label class="control-label">Version:</label>
+      <div class="controls">
+        <input type="text" name="version" value="2">
+      </div>
+    </div>
+        <div class="control-group">
+    <label class="control-label">Plataforma:</label>
+      <div class="controls">
+        <input type="text" name="plataforma" value="android">
+      </div>
+    </div>
+        <br />
+      <button type="button" class="btn" id="formulariojsonLogin" name="formulariojsonLogin">Enviar</button>
+    </div>
+  </div>
+</form>
+
+
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

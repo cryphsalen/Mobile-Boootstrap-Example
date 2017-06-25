@@ -1,0 +1,19 @@
+div#myCarousel{
+	width: 270px;
+	height: 300px;
+	margin-top: 80px;
+	margin-left: 0px;
+	margin-bottom: 200px;
+}
+
+#imagenCarrusel{
+	width: 270px;
+	height: 300px;
+}
+
+#loadingIndicator {
+  margin-top: 50px;
+  margin-left: 55px;
+  margin-bottom: 50px;
+}
+

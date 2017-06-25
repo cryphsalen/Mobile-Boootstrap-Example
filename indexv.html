@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" media="screen and (min-width: 0px)" href="css/small.css">
+   <link rel="stylesheet" media="screen and (min-width: 500px)" href="css/smalltablet.css">
+   <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/medium.css">
+   <link rel="stylesheet" media="screen and (min-width: 1300px)" href="css/large.css">
+   <script type="text/javascript">
+
+   // JavaScript para Obtener Json con Sucursales
+
+   function prueba(){
+
+    var http = null;
+  if(window.XMLHttpRequest)   
+    http = new XMLHttpRequest();   
+  else if(window.ActiveXObject)  
+    http = new ActiveXObject("Microsoft.XMLHTTP");  
+  else {
+    alert("Su navegador no soporta los objetos XMLHTTPRequest...");   
+    return;   
+  }
+    http.open("POST", "http://161.131.232.197:9111/svcRest/sesionws", true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      var types = JSON.parse(http.responseText);
+      for(i=0; i<types.length; i++) {
+        document.getElementById('inputLogin').value;
+        document.getElementById('inputPassword').value;
+      }
+    }
+  }
+
+   function postOnClick()
+{ 
+  document.getElementById('loadingIndicator').style.display = "block";
+  setTimeout(function(){prueba()}, 5000);
+
+}
+
+   // JavaScript para Carrusel
+
+   $(document).ready(
+    function(){
+    $('.carousel').carousel({
+      interval: 1000
+    });
+   });
+
+   // JavaScript para el mata angustias
+
+
+
+   </script>
+	<title>Radio MTV: La Radio Online Que NO Estabas Esperando...</title>
+</head>
+<body background="img/daft.jpg" >
+
+<div class="navbar navbar-fixed-top" id="header">
+   
+   <div class="navbar-inner">
+      
+      <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            
+         <i class="icon-tasks"></i>
+
+         </a>
+
+         <a href="#" class="brand"><img src="img/mtvlogo.jpg" class="imagelogo" /></a>
+
+         <div class="nav-collapse collapse">
+            
+           <ul class="nav pull-right">
+              
+              <li class="active"><a href="#"><i class="icon-home"></i> Home</a></li>
+              <li class="dropdown">
+                
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-star"></i> News<i class="caret"></i></a>
+
+                 <ul class="dropdown-menu">
+                   <li><a href="music.html">In Music</a></li>
+                   <li><a href="#">Artists</a></li>
+                   <li><a href="#">On Demand!</a></li>
+                   <li><a href="#">Radio</a></li>
+                 </ul>
+
+              </li>
+              <li><a href="interviews.html"><i class="icon-eye-open"></i> Interviews</a></li>
+              <li><a href="mtvbuzz.html"><i class="icon-bullhorn"></i> MTV Buzz</a></li>
+
+           </ul>
+
+         </div>
+         
+      </div>
+
+   </div>
+
+</div>
+
+<!--Carrusel -->
+
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"><img src="img/korn.jpg" id="imagenCarrusel" class="imagecarousel" />
+      <div class="carousel-caption">
+          <h4>Jonathan Davis: “David Silveria no va a volver a Korn”</h4>
+          <p>En la entrevista que le realizan a Jonathan Davis en la revista Metal Hammer le preguntan si ve viable una vuelta a Korn del batería David Silveria.</p>
+        </div>
+      </div>
+    
+    <div class="item"><img src="img/KylieMinogue.jpg" id="imagenCarrusel" class="imagecarousel" />
+      <div class="carousel-caption">
+          <h4>Kylie Minogue y Andrés Velencoso siguen juntos</h4>
+          <p>Agarrados de la mano al salir del restaurante J Sheekey y muy sonrientes fueron fotografiados por los paparazzi que estaban esperando ansiosos la instantánea.</p>
+        </div>
+      </div>
+         
+    <div class="item"><img src="img/mtvemalogo.jpg" id="imagenCarrusel" class="imagecarousel" />
+      <div class="carousel-caption">
+          <h4>Conoce a los nominados a los MTV Europe Music Awards 2013</h4>
+          <p>Y espéralo este 10 de noviembre en vivo desde Amsterdam!</p>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+</div>
+
+<!-- Hero Unit -->
+
+<div class="hero-unit">
+  
+<div class="container"> 
+
+  <h3>Sucursales BCI</h3>
+
+  <p>Atención a Clientes Bci Directo: 600 692 8000, Mesa Central: 2692 7000, Av. El Golf 125, Las Condes, Santiago.
+Notificaciones Legales: Agustinas 1161, 7° piso. Santiago Centro, Santiago.</p>
+
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputLogin">Login</label>
+    <div class="controls">
+      <input type="text" id="inputLogin" placeholder="Login">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <input type="password" id="inputPassword" placeholder="Password">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
+      <button type="submit" class="btn" onclick="prueba()">Sign in</button>
+    </div>
+  </div>
+</form>
+
+<!--
+<img src="img/ajax-loader.gif" height="32" width="32" id="loadingIndicator" style="display:none" /> 
+-->
+</div>
+
+</div>
+
+</div>
+
+</div>
+    
+<!-- Grids (Que Deben Ser Máximo 12)-->
+
+<div class="container">
+  
+  <div class="row-fluid">
+    
+    <div class="span4">
+      
+      <img src="img/worldstage.jpg" class="image" />
+
+      <h4 class="paragraph">MTV WORLD STAGE 2013 en México</h4>
+
+      <p class="paragraph">¡Se confirmó el nuevo MTV World Stage! La cuarta edición mexicana del evento musical tendrá nuevamente como sede a la vibrante ciudad de Monterrey, Nuevo León. Estén atentos: ¡los artistas serán anunciados próximamente!
+
+MTV World Stage Monterrey México 2013 será grabado en octubre, en la Arena Monterrey, y transmitido internacionalmente a más de 150 países.</p>
+
+      <a class="btn btn-success" href="#mtvnews" role="button" data-toggle="modal">Leer Más...</a>
+
+    </div>
+
+    <div class="span4">
+
+      <img src="img/shirley.jpg" class="image"/>
+      
+      <h4 class="paragraph">Shirley Manson y los suyos dieron una lección de electro-rock. </h4>
+
+      <p class="paragraph">Había grandes expectativas antes del show de Garbage. Y era de entender: fueron siete años de ausencia. Pero una banda así, con tanto talento y experiencia, no podía fallar. Y así fue: una hora de muchas satisfacciones. Una música introductoria dio la señal para que la gente soltara sus gritos.</p>
+
+       <a href="#" class="btn btn-warning">Leer Más...</a>  
+
+    </div>
+
+    <div class="span4">
+
+      <img src="img/linkinpark.jpg" class="image" />
+      
+      <h4 class="paragraph">La banda de Bennington y Shinoda repasó sus himnos y desplegó su pirotecnia. Rock hi-tech, potente y espectacular.</h4>
+
+      <p class="paragraph">La banda comandada por los vocalistas Chester Bennington y Mike Shinoda subió al escenario de la Arena Monterrey después de Garbage. Su misión, en esa noche, era clara y específica: entregarle todo al público. Y así lo hicieron.</p>
+
+       <a href="#" class="btn btn-danger">Leer Más...</a>  
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Sticky Footer -->
+
+<div class="sticky-footer">
+
+<div class="navbar navbar-fixed-bottom" id="footer">
+  
+  <div class="navbar-inner">
+
+    <div class="container footer-margin-top">
+      
+    <p class="muted pull-left">Created By: Israel Guevara</p>
+    <p class="muted pull-right">Kubos.cl</p>
+
+    </div>
+    
+  </div>
+  
+</div>
+
+</div>
+
+<!-- Modals -->
+
+<div id="mtvnews" class="modal hide fade">
+  
+  <div class="modal-header">
+    
+    <h3>Adquiere Tus Entradas</h3>
+
+  </div><div class="modal-body">
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Precio</td>
+          <td>Fila</td>
+          <td>Forma de Pago</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Visa</td>
+          <td>Master Card</td>
+          <td>American Express</td>
+        </tr>
+        <tr>
+          <td>Gradas</td>
+          <td>Patio</td>
+          <td>Balcón</td>
+        </tr>
+        <tr>
+          <td>Facebook</td>
+          <td>Twitter</td>
+          <td>Correo</td>
+        </tr>
+        <tr>
+          <td>Empresa</td>
+          <td>Profesión</td>
+          <td>Edad</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+<div class="modal-footer">
+  
+  <button class="btn" data-dismiss="modal">Cerrar</button>
+
+</div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>hide_sucursales();</script>
+
+
+</body>
+</html>

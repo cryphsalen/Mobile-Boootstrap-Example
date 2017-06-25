@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" media="screen and (min-width: 0px)" href="css/small.css">
+   <link rel="stylesheet" media="screen and (min-width: 500px)" href="css/smalltablet.css">
+   <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/medium.css">
+   <link rel="stylesheet" media="screen and (min-width: 1300px)" href="css/large.css">
+   <script type="text/javascript">
+
+   // JavaScript para Obtener Json con Sucursales
+
+   function prueba(){
+
+    var http = null;
+  if(window.XMLHttpRequest)   
+    http = new XMLHttpRequest();   
+  else if(window.ActiveXObject)  
+    http = new ActiveXObject("Microsoft.XMLHTTP");  
+  else {
+    alert("Su navegador no soporta los objetos XMLHTTPRequest...");   
+    return;   
+  }
+    http.open("POST", "post.jsp", true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      var types = JSON.parse(http.responseText);
+      for(i=0; i<types.length; i++) {
+        document.getElementById('header'+i).innerHTML = types[i].sucursal.sucursal;
+        document.getElementById('direccion'+i).innerHTML = types[i].sucursal.direccion;
+        document.getElementById('comuna'+i).innerHTML = types[i].sucursal.comuna;
+        document.getElementById('zona'+i).innerHTML = types[i].sucursal.zonaId;
+      }
+      document.getElementById('accordion2').style.display = "block";
+        }
+    }
+    http.send(null);
+   document.getElementById('loadingIndicator').style.display = "none";
+
+   }
+
+   function postOnClick()
+{ 
+  document.getElementById('loadingIndicator').style.display = "block";
+  setTimeout(function(){prueba()}, 5000);
+
+}
+
+
+   // JavaScript Para Borrar Sucursales
+
+   function hide_sucursales(){
+  document.getElementById('accordion2').style.display = "none";
+}
+
+   </script>
+
+   <title>Radio MTV: La Radio Online Que NO Estabas Esperando...</title>
+</head>
+
+<!-- Hero Unit -->
+
+<div class="hero-unit">
+  
+<div class="container"> 
+
+  <h3>Sucursales BCI</h3>
+
+  <p>Atención a Clientes Bci Directo: 600 692 8000, Mesa Central: 2692 7000, Av. El Golf 125, Las Condes, Santiago.
+Notificaciones Legales: Agustinas 1161, 7° piso. Santiago Centro, Santiago.</p>
+
+<a class="btn btn-large btn-primary" onclick="postOnClick()">Obtener Sucursales</a>
+
+<img src="img/ajax-loader.gif" height="32" width="32" id="loadingIndicator" style="display:none" />
+
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <h1><b id='header0' class="hcolor">...</b></h1>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <p>Dirección: <b id='direccion0'></b></p>
+        <p>Comuna: <b id='comuna0'></b></p>
+        <p>Zona: <b id='zona0'></b></p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        <h1><b id='header1' class="hcolor">...</b></h1>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <p>Dirección: <b id='direccion1'></b></p>
+       <p>comuna: <b id='comuna1'></b></p>
+       <p>zona: <b id='zona1'></b></p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        <h1><b id='header2' class="hcolor">...</b></h1>
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+       <p>Dirección: <b id='direccion2'></b></p>
+       <p>Comuna: <b id='comuna2'></b></p>
+       <p>Zona: <b id='zona2'></b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="btn btn-large btn-info" onclick="hide_sucursales()" >Borrar Sucursales</a> 
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>hide_sucursales();</script>
+
+
+</body>
+</html>

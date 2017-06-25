@@ -1,0 +1,17 @@
+.imageBCI{
+	height: 70px;
+	width: 300px;
+}
+
+.span10{
+	background-color: #F5ECCE;
+}
+
+.span2{
+	background-color: #E0F8F7;
+}
+
+.list-group-item{
+	color:#848484;
+	font-weight: bolder;
+}
